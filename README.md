@@ -1,1 +1,1 @@
-*on progress*
+local veritabanını başaramadık abi

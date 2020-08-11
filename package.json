@@ -1,7 +1,6 @@
 {
   "name": "book",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +8,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.5.1"
-  }
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.19",
+    "mysql": "^2.18.1",
+    "nedb": "^1.8.0",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarencelik/bookshelf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yarencelik/bookshelf/issues"
+  },
+  "homepage": "https://github.com/yarencelik/bookshelf#readme",
+  "description": ""
 }
