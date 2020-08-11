@@ -1,1 +1,0 @@
-local veritabanını başaramadık abi
