@@ -1,63 +1,15 @@
-let isbn;
-const express = require("express");
-var Datastore = require("nedb");
-const { type } = require("jquery");
-db = new Datastore({ filename: 'mybooks.db', autoload: true });
-
-
-function saa() {
-    alert("a");
-}
-// const con = require("./connection");
-// 9789754050943
 var url;
 var obj;
-var bookname = "dgffgd";
+var bookname ;
 var books = [];
-// const mysql = require("mysql");
+function myFunction() {
+    var x = document.getElementById("myText").value;
+    loadDoc(x);
+  }
 
-// const bodyParser = require("body-parser");
-var app = express();
-// // app.use(bodyParser.json());
-// app.get('/', function(req, res) {
-//     res.send('Hello World');
-// })
-// app.listen(3000);
-// // let isbn = document.getElementById("myText").textContent;
-// const bookRoutes = require("./routes/book");
-// app.use("/book", bookRoutes);
-
-
-// eventListeners();
-
-
-// sa();
-
-function eventListeners() {
-    control.addEventListener("submit", sa);
-
-}
-aaaa();
-
-function aaaa() {
-
-    console.log(typeof(db))
-    db.insert([{ a: 88 }], function(err) {
-        console.log(err)
-    });
-
-}
-
-function sa() {
-    db.insert([{ a: 5 }, { a: 42 }, { a: 5 }], function(err) {
-        console.log("hata")
-    });
-    console.log("a");
-}
-
-
+var div2 = document.createElement("div");
 function appendData(name) {
-
+    
     var row1 = document.getElementById("bookshelf");
     var div2 = document.createElement("div");
     div2.className = "col-3 mt-3 book";
@@ -88,44 +40,51 @@ function appendData(name) {
     row1.appendChild(div2);
     alert(data["ISBN:" + isbn]["title"]);
     for (let j = 1; j < data.length; j++) {
-        var div2 = document.createElement("div");
-        // div2.className = "border border-secondary rounded m-2 p-3 ";
+        
+        div2.className = "book";
         div2.id = "post" + j;
         div2.innerHTML += "dasgsdfg" + data["ISBN:" + isbn]["title"];
         Container.appendChild(div2);
+        // eventListeners();
     }
 }
 
-function loadDoc() {
-    isbn = window.document.getElementById("isbnn");
+function loadDoc(isbn_) {
+    
     var xhttp = new XMLHttpRequest();
-    url = "https://openlibrary.org/api/books.json?bibkeys=ISBN:" + isbn + "&jscmd=data";
+    url = "https://openlibrary.org/api/books.json?bibkeys=ISBN:" + isbn_ + "&jscmd=data";
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             // document.getElementById("demo").innerHTML = this.responseText;
             obj = JSON.parse(this.responseText);
             dbParam = JSON.stringify(obj);
-            bookname = obj["ISBN:" + isbn]["title"];
-            alert(obj["ISBN:" + isbn]["title"] + obj["ISBN:" + isbn]["authors"][2]);
-            boook = obj["ISBN:" + isbn]["title"];
+            bookname = obj["ISBN:" + isbn_]["title"];
+            // alert(obj["ISBN:" + isbn_]["title"] + obj["ISBN:" + isbn_]["authors"][2]);
+            boook = obj["ISBN:" + isbn_]["title"];
 
             function dynamicUrl() {
-                url = obj["ISBN:" + isbn]["cover"]["medium"];
+                url = obj["ISBN:" + isbn_]["cover"]["medium"];
                 return url;
             }
             appendData(bookname);
+            // Kitabın resmini ekleme
             // var img = document.createElement("img");
             // img.src = dynamicUrl();
             // document.body.appendChild(img);
         }
     };
-    // insert("a", "a", "a");
-    boook = "aa";
-    bookname = "a";
     xhttp.open("GET", url, true);
     xhttp.send();
-    // insert(isbn.toString(), "sa", Date.now().toString());
 
 }
 
-module.exports = bookname;
+//kitabın üstüne tıklandığında silme işlemi *yapılacak*
+function eventListeners(){
+    var remove = document.getElementsByClassName('div2');
+    for (var i = 0 ; i < remove.length; i++) {
+        remove[i].addEventListener('click' , () => {
+
+        });
+     }
+    }
+

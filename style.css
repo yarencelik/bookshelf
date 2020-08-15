@@ -6,3 +6,7 @@
     word-wrap: break-word;
     font-size: 14px;
 }
+.book:hover{
+    content: "Silmek için tıklayın.";
+    color: red;
+}
